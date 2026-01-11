@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableworth Foods</title>
+    <style>
+        /* --- General Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfbf7; /* Warm off-white */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #556b2f; /* Olive Green */
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #3e4f22;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 50px;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #556b2f;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #556b2f;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1622005667396-805c6dfd2238?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        /* --- About Section --- */
+        section {
+            padding: 80px 0;
+        }
+
+        #about {
+            background: #fff;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Products Section --- */
+        #products {
+            background: #fdfbf7;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image-container {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: #fff;
+        }
+
+        .contact-box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            color: #a3c758;
+            font-weight: bold;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #222;
+            color: #777;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo">Tableworth Foods</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Premium Vinegar Preserves</h1>
+            <p>Authentic, hand-crafted pickles and chutneys made with the finest ingredients and premium vinegar. Experience the zest of tradition.</p>
+            <a href="#products" class="btn">View Our Range</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container about-content">
+            <h2 class="section-title">About Tableworth Foods</h2>
+            <div class="section-subtitle">Dedicated to Quality & Taste</div>
+            <p>
+                Tableworth Foods (SMC-Private) Limited is a premier food manufacturing company dedicated to bringing authentic flavors to your dining table. 
+                We specialize in creating high-quality vinegar-based pickles and chutneys using traditional recipes and modern hygiene standards. 
+                Our passion for taste ensures that every jar is packed with fresh ingredients and bold, tangy flavors.
+            </p>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="section-subtitle">Premium ingredients preserved in high-quality vinegar</div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="[attachment_2](attachment)" alt="Olive Pickles in Vinegar">
+                    </div>
+                    <div class="product-info">
+                        <h3>Olive Pickles</h3>
+                        <p>Rich green olives preserved in a tangy vinegar brine, perfect for salads and snacking.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="[attachment_3](attachment)" alt="Mix Vegetable Pickle in Vinegar">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mix Vegetable Pickle</h3>
+                        <p>A crunchy and colorful medley of seasonal vegetables pickled in a light vinegar base.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="[attachment_4](attachment)" alt="Onion Pickle in Vinegar">
+                    </div>
+                    <div class="product-info">
+                        <h3>Onion Pickle</h3>
+                        <p>Savory and sharp pickled onions (Sirka Pyaaz), bringing a classic crunch to any meal.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="[attachment_0](attachment)" alt="Garlic Pickle in Vinegar">
+                    </div>
+                    <div class="product-info">
+                        <h3>Garlic Pickle</h3>
+                        <p>Whole garlic cloves cured in vinegar to create a mild, yet flavorful savory treat.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <img src="[attachment_1](attachment)" alt="Plum Chutney">
+                    </div>
+                    <div class="product-info">
+                        <h3>Plum Chutney</h3>
+                        <p>A sweet and sour delight made from fresh plums and vinegar, ideal as a dip or glaze.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p style="margin-bottom: 20px;">Interested in ordering or stocking our vinegar-based products?</p>
+            
+            <div class="contact-box">
+                <p>Email us directly at:</p>
+                <br>
+                <a href="mailto:contact@tableworthfoods.com" class="contact-email">contact@tableworthfoods.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Tableworth Foods (SMC-Private) Limited. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
